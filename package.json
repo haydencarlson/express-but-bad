@@ -1,0 +1,19 @@
+{
+  "name": "express-but-bad",
+  "version": "1.0.0",
+  "description": "Its like express but bad, but it also has typescript, but its still bad.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/test-server.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.3"
+  }
+}
