@@ -41,6 +41,15 @@ module.exports = (handlers: Handlers, middlewares: MiddlewareCallback[]) => {
     req.query = { ...query };
     req.body = parsed;
 
+    if (middlewares.length) {
+      for (let i = 0; i < middlewares.length; i++) {
+        const middlewareRan = await middlewares[i](req, res);
+        if (!middlewareRan) {
+          return;
+        }
+      }
+    }
+    
     handler.callback(req, res);
   };
 

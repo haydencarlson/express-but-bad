@@ -45,6 +45,6 @@ export type Handlers = Map<string, Handler>;
 
 export type method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
-export type MiddlewareCallback = (req: ExpressButBadRequest, res: ExpressButBadResponse, next: () => void) => void;
+export type MiddlewareCallback = (req: ExpressButBadRequest, res: ExpressButBadResponse) => Boolean;
 
 
