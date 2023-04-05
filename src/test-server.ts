@@ -6,7 +6,6 @@ const app = ebb();
 const server = require('http').Server(app);
 const PORT = process.env.PORT || 1337;
 
-
 app.use(async () => {
   await new Promise((resolve) => {
     setTimeout(resolve, 2000);

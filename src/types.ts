@@ -19,11 +19,16 @@ export interface ExpressButBadRequest extends IncomingMessage {
   body: { [key: string]: any } | string;
 }
 
+export type MiddlewareCallback = (
+  req?: ExpressButBadRequest, res?: ExpressButBadResponse
+) => any;
+
 export interface App {
   /**
    * HTTP request handler
    */
   (req: ExpressButBadRequest, res: ExpressButBadResponse): void;
+  use: (middleware: MiddlewareCallback) => void;
   [key: string]: any;
 }
 
@@ -44,7 +49,3 @@ interface Handler {
 export type Handlers = Map<string, Handler>;
 
 export type method = 'GET' | 'POST' | 'PUT' | 'DELETE';
-
-export type MiddlewareCallback = (req: ExpressButBadRequest, res: ExpressButBadResponse) => Boolean;
-
-

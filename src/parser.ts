@@ -1,4 +1,4 @@
-import { ExpressButBadRequest } from './ebb';
+import { ExpressButBadRequest } from './types';
 
 module.exports = async (req: ExpressButBadRequest) => {
   const buffers = [];
@@ -13,6 +13,6 @@ module.exports = async (req: ExpressButBadRequest) => {
     const parsed = JSON.parse(data);
     return parsed;
   } catch(e) {
-    return data.toString()
+    return data.toString();
   }
 };
