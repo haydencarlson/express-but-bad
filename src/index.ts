@@ -1,3 +1,3 @@
-const handler = require('./handler').default;
+const ebb = require('./ebb').default;
 
-module.exports = handler;
+module.exports = ebb;

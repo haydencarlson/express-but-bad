@@ -1,11 +1,15 @@
-import { ExpressButBadRequest, ExpressButBadResponse } from './handler';
+import { ExpressButBadRequest, ExpressButBadResponse } from './ebb';
 
-const handler = require('./');
+const ebb = require('./');
 
-const app = handler();
+const app = ebb();
 const server = require('http').Server(app);
 const PORT = process.env.PORT || 1337;
 
+
+app.use(() => {
+  console.log('middleware')
+});
 app.get('/', (req: ExpressButBadRequest, res: ExpressButBadResponse) => {
   console.log(`Query:  ${JSON.stringify(req.query)}`);
   res.send('Hello world');
