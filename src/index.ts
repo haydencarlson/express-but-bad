@@ -1,3 +1,3 @@
-const handler = require('./handler');
+const handler = require('./handler').default;
 
 module.exports = handler;

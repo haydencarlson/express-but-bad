@@ -48,7 +48,7 @@ interface App {
   [key: string]: any;
 }
 
-module.exports = () => {
+export default () => {
   const handlers = new Map<string, Handler>();
   const app: App = async function (req: ExpressButBadRequest, res: ExpressButBadResponse) {
     res.send = (body) => {
