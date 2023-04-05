@@ -1,4 +1,4 @@
-import { ExpressButBadRequest } from './handler';
+import { ExpressButBadRequest } from './ebb';
 
 module.exports = async (req: ExpressButBadRequest) => {
   const buffers = [];

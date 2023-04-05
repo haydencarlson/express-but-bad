@@ -1,10 +1,19 @@
-import { ExpressButBadRequest, ExpressButBadResponse } from './handler';
+import { ExpressButBadRequest, ExpressButBadResponse } from './types';
 
-const handler = require('./');
+const ebb = require('./');
 
-const app = handler();
+const app = ebb();
 const server = require('http').Server(app);
 const PORT = process.env.PORT || 1337;
+
+
+app.use(async () => {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
+  console.log('Middleware');
+  return true;
+});
 
 app.get('/', (req: ExpressButBadRequest, res: ExpressButBadResponse) => {
   console.log(`Query:  ${JSON.stringify(req.query)}`);
